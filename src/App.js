@@ -6,18 +6,16 @@ function App() {
     const [data, setData] = useState({});
     const [location, setLocation] = useState('');
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=51de2a1323a86b017d8b673599244e64`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=211de115dbf5f6b4857807001bd350e3`;
 
-    const searchLocation = () => {
-        document.addEventListener('keydown', event => {
-            if (event.key === 'Enter') {
-                axios.get(url).then((response) => {
-                    setData(response.data)
-                    console.log(response.data)
-                })
-            setLocation(' ')
-            }
-        })
+    const searchLocation = (event) => {
+        if (event.key === 'Enter') {
+            axios.get(url).then((response) => {
+                setData(response.data)
+                console.log(response.data)
+            })
+            setLocation('')
+        }
     }
 
   return (
@@ -26,8 +24,8 @@ function App() {
             <input value={location}
                    onChange={event => setLocation(event.target.value)}
                    onKeyPress={searchLocation}
-                   placeholder="Enter location..."
-                   type="text"/>
+                   placeholder='Enter Location'
+                   type="text" />
         </div>
       <div className="container">
         <div className="top">
@@ -35,24 +33,24 @@ function App() {
                 <p>{data.name}</p>
             </div>
             <div className="temp">
-                <h1>32 C</h1>
+                <h1>{data.main ? <h1>{Math.round(data.main.temp - 273)}C</h1> : null}</h1>
             </div>
             <div className="description">
-                <p>Clear</p>
+                <p>{data.main ? <h1>{data.weather[0].main}m/s</h1>: null}</p>
             </div>
         </div>
         <div className="bottom">
             <div className="feels">
                 <p>Feels like</p>
-                <p className="bold">34 C</p>
+                <h1>{data.main ? <h1>{Math.round(data.main.feels_like - 273)}C</h1> : null}</h1>
             </div>
             <div className="humidity">
                 <p>Humidity</p>
-                <p className="bold">30%</p>
+                <h1>{data.main ? <h1>{data.main.humidity}%</h1>: null}</h1>
             </div>
             <div className="wind">
                 <p>Average wind speed</p>
-                <p className="bold">4 m/s</p>
+                <h1>{data.main ? <h1>{data.wind.speed}m/s</h1>: null}</h1>
             </div>
         </div>
       </div>

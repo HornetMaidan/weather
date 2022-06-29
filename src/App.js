@@ -38,7 +38,7 @@ function App() {
                 <p>{data.list ? <h2>{data.list[0].weather.description}</h2>: null}</p>
             </div>
         </div>
-          <h2>5-day forecast</h2>
+          <h2>{data.list ? <h2>5-day forecast</h2> : null}</h2>
           <div className="forecast">
               <h4>{data.list ? <h4>Tomorrow: {Math.round(data.list[8].main.temp -273)}C, {data.list[8].weather[0].description}</h4> : null}</h4>
               <h4>{data.list ? <h4>{data.list[16].dt_txt.slice(5,10)}: {Math.round(data.list[16].main.temp -273)}C, {data.list[16].weather[0].description}</h4> : null}</h4>

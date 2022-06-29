@@ -35,7 +35,7 @@ function App() {
                 <h1>{data.list ? <h1>{Math.round(data.list[0].main.temp - 273)}C</h1> : null}</h1>
             </div>
             <div className="description">
-                <p>{data.list ? <h2>{data.list[0].weather.description}</h2>: null}</p>
+                <p>{data.list ? <h2>{data.list[0].weather[0].main}</h2>: null}</p>
             </div>
         </div>
           <h2>{data.list ? <h2>5-day forecast</h2> : null}</h2>

@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
 
-
 function App() {
     const [data, setData] = useState({});
     const [location, setLocation] = useState('');
@@ -36,21 +35,21 @@ function App() {
                 <h1>{data.main ? <h1>{Math.round(data.main.temp - 273)}C</h1> : null}</h1>
             </div>
             <div className="description">
-                <p>{data.main ? <h1>{data.weather[0].main}m/s</h1>: null}</p>
+                <p>{data.main ? <h2>{data.weather[0].main}</h2>: null}</p>
             </div>
         </div>
         <div className="bottom">
             <div className="feels">
                 <p>Feels like</p>
-                <h1>{data.main ? <h1>{Math.round(data.main.feels_like - 273)}C</h1> : null}</h1>
+                <h1>{data.main ? <h2>{Math.round(data.main.feels_like - 273)}C</h2> : null}</h1>
             </div>
             <div className="humidity">
                 <p>Humidity</p>
-                <h1>{data.main ? <h1>{data.main.humidity}%</h1>: null}</h1>
+                <h1>{data.main ? <h2>{data.main.humidity}%</h2>: null}</h1>
             </div>
             <div className="wind">
                 <p>Average wind speed</p>
-                <h1>{data.main ? <h1>{data.wind.speed}m/s</h1>: null}</h1>
+                <h1>{data.main ? <h2>{data.wind.speed}m/s</h2>: null}</h1>
             </div>
         </div>
       </div>

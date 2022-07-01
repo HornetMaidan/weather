@@ -29,7 +29,7 @@ function App() {
       <div className="container">
         <div className="top">
             <div className="location">
-                <p>{data.city ? <p>{data.city.name}</p> : null}</p>
+                <p>{data.city ? <p>{data.city.name}, {data.city.country}</p> : null}</p>
             </div>
             <div className="temp">
                 <h1>{data.list ? <h1>{Math.round(data.list[0].main.temp - 273)}C</h1> : null}</h1>
